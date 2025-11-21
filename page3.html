@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Trang 3</title>
+<style>
+    body {
+        margin: 0; padding: 0;
+        background: #000;
+        color: #fff;
+        font-family: Arial;
+        text-align: center;
+        padding-top: 80px;
+    }
+
+    .heart {
+        width: 260px;
+        height: 260px;
+        background: #555;
+        position: relative;
+        transform: rotate(-45deg);
+        margin: 0 auto 40px auto;
+    }
+
+    .heart:before, .heart:after {
+        content: "";
+        width: 260px;
+        height: 260px;
+        background: #555;
+        border-radius: 50%;
+        position: absolute;
+    }
+    .heart:before { top: -130px; left: 0; }
+    .heart:after { left: 130px; top: 0; }
+
+    .heart-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+        color: white;
+        font-size: 26px;
+        width: 200px;
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+
+<div class="heart">
+    <div class="heart-text">Ở bên anh thật lâu nhé vợ ơi</div>
+</div>
+
+</body>
+</html>
+
+    
