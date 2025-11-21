@@ -3,16 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <title>Trang 3</title>
+
 <style>
     body {
-        margin: 0; padding: 0;
-        background: #000;
-        color: #fff;
-        font-family: Arial;
+        margin: 0;
+        padding: 0;
+        background: #ffb6c1; /* Nền hồng */
+        font-family: Arial, sans-serif;
+        overflow: hidden;
         text-align: center;
         padding-top: 80px;
     }
 
+    /* Trái tim xám */
     .heart {
         width: 260px;
         height: 260px;
@@ -33,6 +36,7 @@
     .heart:before { top: -130px; left: 0; }
     .heart:after { left: 130px; top: 0; }
 
+    /* Chữ không bị xoay và không mất */
     .heart-text {
         position: absolute;
         top: 50%;
@@ -40,16 +44,61 @@
         transform: translate(-50%, -50%) rotate(45deg);
         color: white;
         font-size: 26px;
-        width: 200px;
+        font-weight: bold;
+        width: 220px;
+        line-height: 1.3;
         text-align: center;
+        z-index: 10;
+    }
+
+    /* Trái tim rơi rơi */
+    .fall-heart {
+        position: absolute;
+        color: #ff3366;
+        font-size: 20px;
+        animation: fall linear infinite;
+        opacity: 0.8;
+    }
+
+    @keyframes fall {
+        0% { transform: translateY(-50px) rotate(0deg); }
+        100% { transform: translateY(110vh) rotate(360deg); }
     }
 </style>
 </head>
+
 <body>
 
+<!-- Trái tim chính -->
 <div class="heart">
-    <div class="heart-text">Ở bên anh thật lâu nhé vợ ơi</div>
+    <div class="heart-text">Ở bên anh thật lâu nhé vợ ơi 💗</div>
 </div>
+
+<script>
+    // Tạo trái tim rơi rơi
+    function createFallingHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("fall-heart");
+        heart.innerHTML = "💗";
+
+        // vị trí trái - random
+        heart.style.left = Math.random() * window.innerWidth + "px";
+
+        // tốc độ rơi random
+        const duration = Math.random() * 3 + 3;
+        heart.style.animationDuration = duration + "s";
+
+        document.body.appendChild(heart);
+
+        // xóa sau khi rơi xong
+        setTimeout(() => {
+            heart.remove();
+        }, duration * 1000);
+    }
+
+    // Làm trái tim rơi liên tục
+    setInterval(createFallingHeart, 300);
+</script>
 
 </body>
 </html>
